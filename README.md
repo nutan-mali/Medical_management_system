@@ -4,7 +4,7 @@ This Django project is designed to manage medicine, medicine schedule, and User 
 
 # Setup Instructions
 
-Clone the repository:  git clone https://github.com/nutan-mal/Medical_management_system.git
+Clone the repository:  git clone https://github.com/nutan-mali/Medical_management_system.git
 
 Install dependencies:  cd medicine
 pip install -r requirements.txt
