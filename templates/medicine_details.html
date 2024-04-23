@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medicine Details</title>
+</head>
+<body>
+  <h1>Medicine Details of {{ username }}</h1>
+  
+  <h2> Medicine Name:- {{ medicine.name }}</h2>
+  <p>Medicine Description: {{ medicine.description }}</p>
+  
+
+  <!-- Add a form to allow adding a new schedule -->
+  <h3>Add New Schedule</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ schedule_form.as_p }}
+    <button type="submit">Add Schedule</button>
+  </form>
+</body>
+</html>

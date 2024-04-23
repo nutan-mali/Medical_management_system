@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medicine Reminder - User Profile</title>
+</head>
+<body>
+  <h1>Medicine Reminder</h1>
+  {% comment %} <h2>User Profile: {{ request.user.username }}</h2> {% endcomment %}
+
+  <h3>Add New Medicine</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Medicine</button>
+  </form>
+
+</body>
+</html>
