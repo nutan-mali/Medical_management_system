@@ -21,6 +21,6 @@ class Schedule(models.Model):
     # Number of times the medicine should be taken based on the repetitiveness.
     repetition_count = models.IntegerField()
 
-    # def __str__(self):
-    #     return self.medicine
+    def __str__(self):
+        return self.medicine.name
 

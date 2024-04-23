@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, HttpResponse,redirect,get_object_or_404
 from .forms import MedicineForm, ScheduleForm
 from .models import Medicine,Schedule,UserProfile
@@ -99,20 +100,23 @@ def medicine(request, medicine_id):
    
 
 @login_required
-def medicine_report(request):
+def medicine_report(request, medicine_id=""):  # This view requires login
     try:
         user_profile = UserProfile.objects.get(user=request.user)
-        medicines = user_profile.medicines.all()
+        medicines = user_profile.medicines.all()  # Fetch all medicines associated with the user profile
     except UserProfile.DoesNotExist:
         user_profile = None
-        medicines = []
+        medicines = []  # Empty list if no user profile found
 
     medicine_data = []
     for medicine in medicines:
-        schedules = Schedule.objects.filter(medicine=medicine)
+        print(f"Medicine ID: {medicine.id}, Name: {medicine.name}")  # Print medicine details for debugging
+        schedules = Schedule.objects.filter(medicine=medicine)  # Fetch all schedules associated with this medicine
         medicine_data.append({
             'medicine': medicine,
             'schedules': schedules,
-        })
+        })  # Create a dictionary for each medicine with its schedules
+    print(medicine_data)  # Print the prepared medicine data for debugging
+    return render(request, 'medicine_report.html', {'medicine_data': medicine_data})  # Render the template with medicine data
 
     

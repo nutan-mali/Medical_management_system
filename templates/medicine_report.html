@@ -1,36 +1,4 @@
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <title>Medicine Reminder - Report</title>
-</head>
-<body>
-    <h1>Medicine Report</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Medicine Name</th>
-                <th>Description</th>
-                <th>Schedules</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for medicine in medicines %}
-            <tr>
-                <td>{{ medicine.name }}</td>
-                <td>{{ medicine.description }}</td>
-                <td>
-                    <ul>
-                        {% for schedule in medicine.schedule_set.all %}
-                        <li>{{ schedule.repetitiveness }} - {{ schedule.repetition_count }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html> {% endcomment %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
